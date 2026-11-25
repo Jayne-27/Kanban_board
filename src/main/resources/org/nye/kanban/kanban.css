@@ -1,0 +1,125 @@
+/* ===== Kanban Board stylesheet =====
+   Selectors match the styleClass values used in kanban.fxml and TaskCell.java. */
+
+.board-root {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 13px;
+    -fx-background-color: #eef1f5;
+}
+
+/* ---------- Toolbar ---------- */
+.primary-button {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.primary-button:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+/* ---------- Columns ---------- */
+.column {
+    -fx-background-color: #dfe4ea;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-spacing: 8;
+}
+.column-header {
+    -fx-alignment: center-left;
+    -fx-padding: 2 4 2 4;
+}
+.column-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+.count-badge {
+    -fx-background-color: #9ca3af;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 1 8 1 8;
+}
+
+/* ---------- ListView: make it transparent so only the cards show ---------- */
+.task-list {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+.task-list:focused {
+    -fx-background-color: transparent;
+}
+.task-list .list-cell,
+.task-list .list-cell:filled,
+.task-list .list-cell:filled:selected,
+.task-list .list-cell:filled:hover {
+    -fx-background-color: transparent;
+    -fx-padding: 4 2 4 2;
+}
+.task-list .placeholder .label {
+    -fx-text-fill: #6b7280;
+    -fx-font-style: italic;
+}
+
+/* ---------- Task card (built in TaskCell.java) ---------- */
+.card {
+    -fx-background: white;   /* resets text colours inside, so selection doesn't turn labels white */
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 8;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 4, 0, 0, 1);
+}
+.task-list .list-cell:hover .card {
+    -fx-border-color: #93c5fd;
+}
+.task-list .list-cell:selected .card {
+    -fx-border-color: #2563eb;
+    -fx-border-width: 2;
+    -fx-padding: 9;          /* 1px less padding so the card doesn't grow when the border gets thicker */
+}
+.card-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #111827;
+}
+.card-description {
+    -fx-text-fill: #4b5563;
+}
+.card-date {
+    -fx-text-fill: #6b7280;
+    -fx-font-size: 12px;
+}
+.card-date:overdue {            /* :overdue is a custom PseudoClass set in TaskCell */
+    -fx-text-fill: #dc2626;
+    -fx-font-weight: bold;
+}
+
+/* ---------- Priority badges ---------- */
+.priority-badge {
+    -fx-background-radius: 4;
+    -fx-padding: 1 6 1 6;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+.priority-low    { -fx-background-color: #dcfce7; -fx-text-fill: #166534; }
+.priority-medium { -fx-background-color: #fef3c7; -fx-text-fill: #92400e; }
+.priority-high   { -fx-background-color: #fee2e2; -fx-text-fill: #991b1b; }
+
+/* ---------- Status bar ---------- */
+.status-bar {
+    -fx-alignment: center-left;
+    -fx-padding: 6 12 6 12;
+    -fx-background-color: #f9fafb;
+    -fx-border-color: #d1d5db transparent transparent transparent;
+}
+.status-bar .progress-bar .bar {
+    -fx-background-color: #16a34a;
+}
+
+/* ---------- Task dialog ---------- */
+.error-label {
+    -fx-text-fill: #dc2626;
+}
